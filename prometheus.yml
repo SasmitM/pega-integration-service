@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'pega-integration-service'
+    metrics_path: '/prometheus'
+    static_configs:
+      - targets: [ 'integration-service:8080' ]
+        labels:
+          application: 'pega-integration-service'
+          environment: 'local'

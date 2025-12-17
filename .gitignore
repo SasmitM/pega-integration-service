@@ -1,0 +1,55 @@
+# OS Files
+Thumbs.db
+.DS_Store
+
+# Gradle
+.gradle
+build/
+target/
+out/
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+
+# Micronaut
+.micronaut/
+
+# IntelliJ IDEA
+.idea
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.project
+.settings
+.classpath
+.factorypath
+
+# Docker & Kubernetes
+*.log
+
+# Grafana (local data)
+grafana-data/
+
+# Prometheus (local data)
+prometheus-data/
+
+# Environment variables
+.env
+.env.local
+
+# AWS & Secrets
+*.pem
+*.key
+aws-credentials.txt
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~

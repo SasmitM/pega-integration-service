@@ -1,0 +1,31 @@
+micronaut:
+  application:
+    name: pega-integration-service
+  server:
+    port: 8080
+  metrics:
+    enabled: true
+    export:
+      prometheus:
+        enabled: true
+        step: PT15S
+        descriptions: true
+
+endpoints:
+  prometheus:
+    sensitive: false
+    enabled: true
+  health:
+    enabled: true
+    sensitive: false
+  metrics:
+    enabled: true
+    sensitive: false
+  all:
+    port: 8080
+
+# External API configuration
+external-api:
+  base-url: https://jsonplaceholder.typicode.com
+  timeout: 5s
+  connect-timeout: 3s

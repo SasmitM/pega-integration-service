@@ -1,0 +1,100 @@
+{
+  "dashboard": {
+    "title": "Pega Integration Service",
+    "tags": [
+      "integration",
+      "microservice"
+    ],
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "Request Rate (requests/sec)",
+        "type": "graph",
+        "gridPos": {
+          "x": 0,
+          "y": 0,
+          "w": 12,
+          "h": 8
+        },
+        "targets": [
+          {
+            "expr": "rate(integration_requests_total[1m])",
+            "legendFormat": "Requests/sec"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Error Rate",
+        "type": "graph",
+        "gridPos": {
+          "x": 12,
+          "y": 0,
+          "w": 12,
+          "h": 8
+        },
+        "targets": [
+          {
+            "expr": "rate(integration_failures_total[1m])",
+            "legendFormat": "Errors/sec"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "External API Latency (P95)",
+        "type": "graph",
+        "gridPos": {
+          "x": 0,
+          "y": 8,
+          "w": 12,
+          "h": 8
+        },
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(external_api_latency_seconds_bucket[5m]))",
+            "legendFormat": "P95 Latency"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Total Requests",
+        "type": "stat",
+        "gridPos": {
+          "x": 12,
+          "y": 8,
+          "w": 6,
+          "h": 4
+        },
+        "targets": [
+          {
+            "expr": "integration_requests_total"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Total Failures",
+        "type": "stat",
+        "gridPos": {
+          "x": 18,
+          "y": 8,
+          "w": 6,
+          "h": 4
+        },
+        "targets": [
+          {
+            "expr": "integration_failures_total"
+          }
+        ]
+      }
+    ],
+    "refresh": "5s",
+    "time": {
+      "from": "now-15m",
+      "to": "now"
+    }
+  }
+}
